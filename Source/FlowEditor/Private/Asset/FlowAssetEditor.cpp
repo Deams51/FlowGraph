@@ -208,6 +208,9 @@ void FFlowAssetEditor::DoPresaveAssetUpdate()
 			FlowGraph->OnSave();
 		}
 	}
+
+	// Auto validated assets on save
+    ValidateAsset_Internal();
 }
 
 bool FFlowAssetEditor::IsTabFocused(const FTabId& TabId) const
@@ -451,6 +454,9 @@ void FFlowAssetEditor::ValidateAsset_Internal()
 		ValidationLogListing->AddMessages(LogResults.Messages);
 	}
 	ValidationLogListing->OnDataChanged().Broadcast();
+    
+	// Auto refresh assets to show validation errors
+    RefreshAsset();
 }
 
 void FFlowAssetEditor::ValidateAsset(FFlowMessageLog& MessageLog)
