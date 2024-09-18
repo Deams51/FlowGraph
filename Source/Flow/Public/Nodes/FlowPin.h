@@ -14,9 +14,11 @@ struct FLOW_API FFlowPin
 	UPROPERTY(EditDefaultsOnly, Category = "FlowPin")
 	FName PinName;
 
+#if WITH_EDITORONLY_DATA
 	// An optional Display Name, you can use it to override PinName without the need to update graph connections
 	UPROPERTY(EditDefaultsOnly, Category = "FlowPin")
 	FText PinFriendlyName;
+#endif
 
 	UPROPERTY(EditDefaultsOnly, Category = "FlowPin")
 	FString PinToolTip;
